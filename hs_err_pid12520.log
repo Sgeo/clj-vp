@@ -1,0 +1,450 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x6fc84787, pid=12520, tid=11736
+#
+# JRE version: 7.0_07-b11
+# Java VM: Java HotSpot(TM) Client VM (23.3-b01 mixed mode, sharing windows-x86 )
+# Problematic frame:
+# C  [VP.dll+0x4787]  vp_object_add+0x1f61
+#
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x04925400):  JavaThread "nREPL-worker-0" daemon [_thread_in_native, id=11736, stack(0x060c0000,0x06110000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x00000010
+
+Registers:
+EAX=0x0000000c, EBX=0x05b82198, ECX=0x05b82048, EDX=0x00000005
+ESP=0x0610dab4, EBP=0x0610dee0, ESI=0xffffffff, EDI=0x0000000c
+EIP=0x6fc84787, EFLAGS=0x00010206
+
+Top of Stack: (sp=0x0610dab4)
+0x0610dab4:   0610dc10 0610dc00 0610e1d8 00000000
+0x0610dac4:   048b9142 4cc40010 2f6d6f63 01d0000f
+0x0610dad4:   000036a3 6e696f50 00726574 0000000c
+0x0610dae4:   0610daf4 01c40010 000036a3 00286d78
+0x0610daf4:   00286e90 00287088 00287170 0000000c
+0x0610db04:   0610da98 00000000 04800980 00286d78
+0x0610db14:   00286e90 048adbf0 00287170 7701e0f2
+0x0610db24:   0610dab8 0610e1d8 0610e8c4 770671d5 
+
+Instructions: (pc=0x6fc84787)
+0x6fc84767:   58 04 74 04 85 ff 7f bf 8d 65 f4 5b 5e 5f 5d c3
+0x6fc84777:   90 55 89 e5 57 56 53 81 ec 20 04 00 00 8b 7d 08
+0x6fc84787:   8b 57 04 89 d0 2b 07 c1 f8 03 69 c0 81 3f e0 0f
+0x6fc84797:   85 c0 0f 85 ac 00 00 00 31 f6 3b 75 10 0f 8d a8 
+
+
+Register to memory mapping:
+
+EAX=0x0000000c is an unknown value
+EBX=0x05b82198 is an unknown value
+ECX=0x05b82048 is an unknown value
+EDX=0x00000005 is an unknown value
+ESP=0x0610dab4 is pointing into the stack for thread: 0x04925400
+EBP=0x0610dee0 is pointing into the stack for thread: 0x04925400
+ESI=0xffffffff is an unknown value
+EDI=0x0000000c is an unknown value
+
+
+Stack: [0x060c0000,0x06110000],  sp=0x0610dab4,  free space=310k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [VP.dll+0x4787]  vp_object_add+0x1f61
+C  [VP.dll+0x431f]  vp_object_add+0x1af9
+C  [VP.dll+0x1d85]  vp_login+0x1bd
+C  [jna965084245861368111.dll+0xd277]  Java_com_sun_jna_Native_initialize_1ffi_1type+0x3927
+C  [jna965084245861368111.dll+0xce92]  Java_com_sun_jna_Native_initialize_1ffi_1type+0x3542
+C  [jna965084245861368111.dll+0x2dde]
+C  [jna965084245861368111.dll+0x532e]  Java_com_sun_jna_Native_invokeInt+0x2e
+j  com.sun.jna.Native.invokeInt(JI[Ljava/lang/Object;)I+0
+j  com.sun.jna.Function.invoke([Ljava/lang/Object;Ljava/lang/Class;Z)Ljava/lang/Object;+333
+j  com.sun.jna.Function.invoke(Ljava/lang/Class;[Ljava/lang/Object;Ljava/util/Map;)Ljava/lang/Object;+214
+j  com.sun.jna.Library$Handler.invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;+341
+j  $Proxy0.vp_login(Lvp/VPLibrary$VPInstance;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I+29
+v  ~StubRoutines::call_stub
+V  [jvm.dll+0x12a39a]
+V  [jvm.dll+0x1d962e]
+V  [jvm.dll+0x12a41d]
+V  [jvm.dll+0x13539e]
+V  [jvm.dll+0x13569e]
+V  [jvm.dll+0xd50a9]
+C  [java.dll+0x7de6]  Java_sun_reflect_NativeMethodAccessorImpl_invoke0+0x15
+j  sun.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+87
+J  sun.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+j  clojure.lang.RestFn.invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+228
+j  user$eval980.invoke()Ljava/lang/Object;+30
+j  clojure.lang.Compiler.eval(Ljava/lang/Object;Z)Ljava/lang/Object;+273
+j  clojure.lang.Compiler.eval(Ljava/lang/Object;)Ljava/lang/Object;+2
+j  clojure.core$eval.invoke(Ljava/lang/Object;)Ljava/lang/Object;+3
+j  clojure.main$repl$read_eval_print__6405.invoke()Ljava/lang/Object;+80
+j  clojure.main$repl$fn__6410.invoke()Ljava/lang/Object;+7
+j  clojure.main$repl.doInvoke(Ljava/lang/Object;)Ljava/lang/Object;+622
+j  clojure.lang.RestFn.invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+225
+j  clojure.tools.nrepl.middleware.interruptible_eval$evaluate$fn__495.invoke()Ljava/lang/Object;+195
+J  clojure.lang.AFn.applyToHelper(Lclojure/lang/IFn;Lclojure/lang/ISeq;)Ljava/lang/Object;
+J  clojure.core$apply.invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+j  clojure.lang.RestFn.invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+109
+j  clojure.tools.nrepl.middleware.interruptible_eval$evaluate.invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+505
+j  clojure.tools.nrepl.middleware.interruptible_eval$interruptible_eval$fn__536$fn__538.invoke()Ljava/lang/Object;+114
+j  clojure.core$comp$fn__4034.invoke()Ljava/lang/Object;+14
+j  clojure.tools.nrepl.middleware.interruptible_eval$run_next$fn__529.invoke()Ljava/lang/Object;+7
+j  clojure.lang.AFn.run()V+1
+j  java.util.concurrent.ThreadPoolExecutor.runWorker(Ljava/util/concurrent/ThreadPoolExecutor$Worker;)V+46
+j  java.util.concurrent.ThreadPoolExecutor$Worker.run()V+5
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+V  [jvm.dll+0x12a39a]
+V  [jvm.dll+0x1d962e]
+V  [jvm.dll+0x12a583]
+V  [jvm.dll+0x12a5e7]
+V  [jvm.dll+0xd315f]
+V  [jvm.dll+0x14a697]
+V  [jvm.dll+0x14a800]
+V  [jvm.dll+0x17efe9]
+C  [msvcr100.dll+0x5c6de]  endthreadex+0x3a
+C  [msvcr100.dll+0x5c788]  endthreadex+0xe4
+C  [kernel32.dll+0x1339a]  BaseThreadInitThunk+0x12
+C  [ntdll.dll+0x39ef2]  RtlInitializeExceptionChain+0x63
+C  [ntdll.dll+0x39ec5]  RtlInitializeExceptionChain+0x36
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  com.sun.jna.Native.invokeInt(JI[Ljava/lang/Object;)I+0
+j  com.sun.jna.Function.invoke([Ljava/lang/Object;Ljava/lang/Class;Z)Ljava/lang/Object;+333
+j  com.sun.jna.Function.invoke(Ljava/lang/Class;[Ljava/lang/Object;Ljava/util/Map;)Ljava/lang/Object;+214
+j  com.sun.jna.Library$Handler.invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;+341
+j  $Proxy0.vp_login(Lvp/VPLibrary$VPInstance;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I+29
+v  ~StubRoutines::call_stub
+j  sun.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+0
+j  sun.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+87
+J  sun.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+J  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+J  clojure.lang.Reflector.invokeMatchingMethod(Ljava/lang/String;Ljava/util/List;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+J  clojure.lang.Reflector.invokeInstanceMethod(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
+j  clj_vp.core$login.doInvoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+145
+j  clojure.lang.RestFn.invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+228
+j  user$eval980.invoke()Ljava/lang/Object;+30
+j  clojure.lang.Compiler.eval(Ljava/lang/Object;Z)Ljava/lang/Object;+273
+j  clojure.lang.Compiler.eval(Ljava/lang/Object;)Ljava/lang/Object;+2
+j  clojure.core$eval.invoke(Ljava/lang/Object;)Ljava/lang/Object;+3
+j  clojure.main$repl$read_eval_print__6405.invoke()Ljava/lang/Object;+80
+j  clojure.main$repl$fn__6410.invoke()Ljava/lang/Object;+7
+j  clojure.main$repl.doInvoke(Ljava/lang/Object;)Ljava/lang/Object;+622
+j  clojure.lang.RestFn.invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+225
+j  clojure.tools.nrepl.middleware.interruptible_eval$evaluate$fn__495.invoke()Ljava/lang/Object;+195
+J  clojure.lang.AFn.applyToHelper(Lclojure/lang/IFn;Lclojure/lang/ISeq;)Ljava/lang/Object;
+j  clojure.lang.AFn.applyTo(Lclojure/lang/ISeq;)Ljava/lang/Object;+8
+J  clojure.core$apply.invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+j  clojure.core$with_bindings_STAR_.doInvoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+33
+j  clojure.lang.RestFn.invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+109
+j  clojure.tools.nrepl.middleware.interruptible_eval$evaluate.invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+505
+j  clojure.tools.nrepl.middleware.interruptible_eval$interruptible_eval$fn__536$fn__538.invoke()Ljava/lang/Object;+114
+j  clojure.core$comp$fn__4034.invoke()Ljava/lang/Object;+14
+j  clojure.tools.nrepl.middleware.interruptible_eval$run_next$fn__529.invoke()Ljava/lang/Object;+7
+j  clojure.lang.AFn.run()V+1
+j  java.util.concurrent.ThreadPoolExecutor.runWorker(Ljava/util/concurrent/ThreadPoolExecutor$Worker;)V+46
+j  java.util.concurrent.ThreadPoolExecutor$Worker.run()V+5
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+=>0x04925400 JavaThread "nREPL-worker-0" daemon [_thread_in_native, id=11736, stack(0x060c0000,0x06110000)]
+  0x04871400 JavaThread "clojure-agent-send-off-pool-3" [_thread_blocked, id=8856, stack(0x05da0000,0x05df0000)]
+  0x052a2c00 JavaThread "clojure-agent-send-off-pool-2" [_thread_in_native, id=13276, stack(0x05880000,0x058d0000)]
+  0x04f5ac00 JavaThread "clojure-agent-send-off-pool-1" [_thread_blocked, id=12452, stack(0x05830000,0x05880000)]
+  0x04f59c00 JavaThread "clojure-agent-send-off-pool-0" [_thread_in_native, id=10448, stack(0x04560000,0x045b0000)]
+  0x01f26800 JavaThread "Service Thread" daemon [_thread_blocked, id=3068, stack(0x04350000,0x043a0000)]
+  0x01f19000 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=9232, stack(0x04490000,0x044e0000)]
+  0x01f18000 JavaThread "Attach Listener" daemon [_thread_blocked, id=12560, stack(0x042f0000,0x04340000)]
+  0x01f14c00 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=12928, stack(0x03fa0000,0x03ff0000)]
+  0x01eff000 JavaThread "Finalizer" daemon [_thread_blocked, id=12792, stack(0x009e0000,0x00a30000)]
+  0x01efd800 JavaThread "Reference Handler" daemon [_thread_blocked, id=12776, stack(0x040a0000,0x040f0000)]
+  0x01e65000 JavaThread "main" [_thread_blocked, id=8348, stack(0x00570000,0x005c0000)]
+
+Other Threads:
+  0x01efb400 VMThread [stack: 0x03ff0000,0x04040000] [id=11952]
+  0x01f42c00 WatcherThread [stack: 0x04620000,0x04670000] [id=8268]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 7936K, used 4426K [0x23e30000, 0x246c0000, 0x29380000)
+  eden space 7104K,  58% used [0x23e30000, 0x24237098, 0x24520000)
+  from space 832K,  36% used [0x245f0000, 0x2463b818, 0x246c0000)
+  to   space 832K,   0% used [0x24520000, 0x24520000, 0x245f0000)
+ tenured generation   total 17488K, used 13864K [0x29380000, 0x2a494000, 0x33e30000)
+   the space 17488K,  79% used [0x29380000, 0x2a10a130, 0x2a10a200, 0x2a494000)
+ compacting perm gen  total 12288K, used 7542K [0x33e30000, 0x34a30000, 0x37e30000)
+   the space 12288K,  61% used [0x33e30000, 0x3458d948, 0x3458da00, 0x34a30000)
+    ro space 10240K,  45% used [0x37e30000, 0x382b4650, 0x382b4800, 0x38830000)
+    rw space 12288K,  54% used [0x38830000, 0x38eb7e58, 0x38eb8000, 0x39430000)
+
+Card table byte_map: [0x00350000,0x00400000] byte_map_base: 0x00230e80
+
+Polling page: 0x00170000
+
+Code Cache  [0x01f60000, 0x021b8000, 0x03f60000)
+ total_blobs=1253 nmethods=1071 adapters=115 free_code_cache=30390Kb largest_free_block=31118784
+
+Compilation events (10 events):
+Event: 32.930 Thread 0x01f19000 1071             java.util.concurrent.atomic.AtomicReference::compareAndSet (13 bytes)
+Event: 32.930 Thread 0x01f19000 nmethod 1071 0x021b1e48 code [0x021b1f40, 0x021b1fe0]
+Event: 41.371 Thread 0x01f19000 1072             clojure.lang.PersistentHashMap$ArrayNode::nodeSeq (8 bytes)
+Event: 41.371 Thread 0x01f19000 nmethod 1072 0x021b2048 code [0x021b2150, 0x021b21fc]
+Event: 41.372 Thread 0x01f19000 1073             clojure.lang.PersistentHashMap$ArrayNode$Seq::create (8 bytes)
+Event: 41.372 Thread 0x01f19000 nmethod 1073 0x021b2288 code [0x021b2380, 0x021b241c]
+Event: 41.376 Thread 0x01f19000 1074             clojure.lang.ArrayChunk::<init> (20 bytes)
+Event: 41.377 Thread 0x01f19000 nmethod 1074 0x021b2488 code [0x021b2580, 0x021b2620]
+Event: 41.379 Thread 0x01f19000 1075             clojure.lang.PersistentArrayMap$TransientArrayMap::ensureEditable (38 bytes)
+Event: 41.379 Thread 0x01f19000 nmethod 1075 0x021b2688 code [0x021b27a0, 0x021b2944]
+
+GC Heap History (10 events):
+Event: 7.663 GC heap before
+{Heap before GC invocations=159 (full 1):
+ def new generation   total 7936K, used 7534K [0x23e30000, 0x246c0000, 0x29380000)
+  eden space 7104K, 100% used [0x23e30000, 0x24520000, 0x24520000)
+  from space 832K,  51% used [0x24520000, 0x2458bab8, 0x245f0000)
+  to   space 832K,   0% used [0x245f0000, 0x245f0000, 0x246c0000)
+ tenured generation   total 17488K, used 12210K [0x29380000, 0x2a494000, 0x33e30000)
+   the space 17488K,  69% used [0x29380000, 0x29f6ca40, 0x29f6cc00, 0x2a494000)
+ compacting perm gen  total 12288K, used 5884K [0x33e30000, 0x34a30000, 0x37e30000)
+   the space 12288K,  47% used [0x33e30000, 0x343ef250, 0x343ef400, 0x34a30000)
+    ro space 10240K,  45% used [0x37e30000, 0x382b4650, 0x382b4800, 0x38830000)
+    rw space 12288K,  54% used [0x38830000, 0x38eb7e58, 0x38eb8000, 0x39430000)
+Event: 7.666 GC heap after
+Heap after GC invocations=160 (full 1):
+ def new generation   total 7936K, used 453K [0x23e30000, 0x246c0000, 0x29380000)
+  eden space 7104K,   0% used [0x23e30000, 0x23e30000, 0x24520000)
+  from space 832K,  54% used [0x245f0000, 0x24661670, 0x246c0000)
+  to   space 832K,   0% used [0x24520000, 0x24520000, 0x245f0000)
+ tenured generation   total 17488K, used 12252K [0x29380000, 0x2a494000, 0x33e30000)
+   the space 17488K,  70% used [0x29380000, 0x29f77010, 0x29f77200, 0x2a494000)
+ compacting perm gen  total 12288K, used 5884K [0x33e30000, 0x34a30000, 0x37e30000)
+   the space 12288K,  47% used [0x33e30000, 0x343ef250, 0x343ef400, 0x34a30000)
+    ro space 10240K,  45% used [0x37e30000, 0x382b4650, 0x382b4800, 0x38830000)
+    rw space 12288K,  54% used [0x38830000, 0x38eb7e58, 0x38eb8000, 0x39430000)
+}
+Event: 8.075 GC heap before
+{Heap before GC invocations=160 (full 1):
+ def new generation   total 7936K, used 7557K [0x23e30000, 0x246c0000, 0x29380000)
+  eden space 7104K, 100% used [0x23e30000, 0x24520000, 0x24520000)
+  from space 832K,  54% used [0x245f0000, 0x24661670, 0x246c0000)
+  to   space 832K,   0% used [0x24520000, 0x24520000, 0x245f0000)
+ tenured generation   total 17488K, used 12252K [0x29380000, 0x2a494000, 0x33e30000)
+   the space 17488K,  70% used [0x29380000, 0x29f77010, 0x29f77200, 0x2a494000)
+ compacting perm gen  total 12288K, used 5991K [0x33e30000, 0x34a30000, 0x37e30000)
+   the space 12288K,  48% used [0x33e30000, 0x34409df0, 0x34409e00, 0x34a30000)
+    ro space 10240K,  45% used [0x37e30000, 0x382b4650, 0x382b4800, 0x38830000)
+    rw space 12288K,  54% used [0x38830000, 0x38eb7e58, 0x38eb8000, 0x39430000)
+Event: 8.081 GC heap after
+Heap after GC invocations=161 (full 1):
+ def new generation   total 7936K, used 781K [0x23e30000, 0x246c0000, 0x29380000)
+  eden space 7104K,   0% used [0x23e30000, 0x23e30000, 0x24520000)
+  from space 832K,  93% used [0x24520000, 0x245e3400, 0x245f0000)
+  to   space 832K,   0% used [0x245f0000, 0x245f0000, 0x246c0000)
+ tenured generation   total 17488K, used 12299K [0x29380000, 0x2a494000, 0x33e30000)
+   the space 17488K,  70% used [0x29380000, 0x29f82fd0, 0x29f83000, 0x2a494000)
+ compacting perm gen  total 12288K, used 5991K [0x33e30000, 0x34a30000, 0x37e30000)
+   the space 12288K,  48% used [0x33e30000, 0x34409df0, 0x34409e00, 0x34a30000)
+    ro space 10240K,  45% used [0x37e30000, 0x382b4650, 0x382b4800, 0x38830000)
+    rw space 12288K,  54% used [0x38830000, 0x38eb7e58, 0x38eb8000, 0x39430000)
+}
+Event: 8.694 GC heap before
+{Heap before GC invocations=161 (full 1):
+ def new generation   total 7936K, used 7885K [0x23e30000, 0x246c0000, 0x29380000)
+  eden space 7104K, 100% used [0x23e30000, 0x24520000, 0x24520000)
+  from space 832K,  93% used [0x24520000, 0x245e3400, 0x245f0000)
+  to   space 832K,   0% used [0x245f0000, 0x245f0000, 0x246c0000)
+ tenured generation   total 17488K, used 12299K [0x29380000, 0x2a494000, 0x33e30000)
+   the space 17488K,  70% used [0x29380000, 0x29f82fd0, 0x29f83000, 0x2a494000)
+ compacting perm gen  total 12288K, used 6577K [0x33e30000, 0x34a30000, 0x37e30000)
+   the space 12288K,  53% used [0x33e30000, 0x3449c7c0, 0x3449c800, 0x34a30000)
+    ro space 10240K,  45% used [0x37e30000, 0x382b4650, 0x382b4800, 0x38830000)
+    rw space 12288K,  54% used [0x38830000, 0x38eb7e58, 0x38eb8000, 0x39430000)
+Event: 8.704 GC heap after
+Heap after GC invocations=162 (full 1):
+ def new generation   total 7936K, used 831K [0x23e30000, 0x246c0000, 0x29380000)
+  eden space 7104K,   0% used [0x23e30000, 0x23e30000, 0x24520000)
+  from space 832K,  99% used [0x245f0000, 0x246bfff8, 0x246c0000)
+  to   space 832K,   0% used [0x24520000, 0x24520000, 0x245f0000)
+ tenured generation   total 17488K, used 13061K [0x29380000, 0x2a494000, 0x33e30000)
+   the space 17488K,  74% used [0x29380000, 0x2a041430, 0x2a041600, 0x2a494000)
+ compacting perm gen  total 12288K, used 6577K [0x33e30000, 0x34a30000, 0x37e30000)
+   the space 12288K,  53% used [0x33e30000, 0x3449c7c0, 0x3449c800, 0x34a30000)
+    ro space 10240K,  45% used [0x37e30000, 0x382b4650, 0x382b4800, 0x38830000)
+    rw space 12288K,  54% used [0x38830000, 0x38eb7e58, 0x38eb8000, 0x39430000)
+}
+Event: 9.219 GC heap before
+{Heap before GC invocations=162 (full 1):
+ def new generation   total 7936K, used 7935K [0x23e30000, 0x246c0000, 0x29380000)
+  eden space 7104K, 100% used [0x23e30000, 0x24520000, 0x24520000)
+  from space 832K,  99% used [0x245f0000, 0x246bfff8, 0x246c0000)
+  to   space 832K,   0% used [0x24520000, 0x24520000, 0x245f0000)
+ tenured generation   total 17488K, used 13061K [0x29380000, 0x2a494000, 0x33e30000)
+   the space 17488K,  74% used [0x29380000, 0x2a041430, 0x2a041600, 0x2a494000)
+ compacting perm gen  total 12288K, used 7000K [0x33e30000, 0x34a30000, 0x37e30000)
+   the space 12288K,  56% used [0x33e30000, 0x34506218, 0x34506400, 0x34a30000)
+    ro space 10240K,  45% used [0x37e30000, 0x382b4650, 0x382b4800, 0x38830000)
+    rw space 12288K,  54% used [0x38830000, 0x38eb7e58, 0x38eb8000, 0x39430000)
+Event: 9.228 GC heap after
+Heap after GC invocations=163 (full 1):
+ def new generation   total 7936K, used 734K [0x23e30000, 0x246c0000, 0x29380000)
+  eden space 7104K,   0% used [0x23e30000, 0x23e30000, 0x24520000)
+  from space 832K,  88% used [0x24520000, 0x245d7958, 0x245f0000)
+  to   space 832K,   0% used [0x245f0000, 0x245f0000, 0x246c0000)
+ tenured generation   total 17488K, used 13674K [0x29380000, 0x2a494000, 0x33e30000)
+   the space 17488K,  78% used [0x29380000, 0x2a0da8e0, 0x2a0daa00, 0x2a494000)
+ compacting perm gen  total 12288K, used 7000K [0x33e30000, 0x34a30000, 0x37e30000)
+   the space 12288K,  56% used [0x33e30000, 0x34506218, 0x34506400, 0x34a30000)
+    ro space 10240K,  45% used [0x37e30000, 0x382b4650, 0x382b4800, 0x38830000)
+    rw space 12288K,  54% used [0x38830000, 0x38eb7e58, 0x38eb8000, 0x39430000)
+}
+Event: 20.344 GC heap before
+{Heap before GC invocations=163 (full 1):
+ def new generation   total 7936K, used 7838K [0x23e30000, 0x246c0000, 0x29380000)
+  eden space 7104K, 100% used [0x23e30000, 0x24520000, 0x24520000)
+  from space 832K,  88% used [0x24520000, 0x245d7958, 0x245f0000)
+  to   space 832K,   0% used [0x245f0000, 0x245f0000, 0x246c0000)
+ tenured generation   total 17488K, used 13674K [0x29380000, 0x2a494000, 0x33e30000)
+   the space 17488K,  78% used [0x29380000, 0x2a0da8e0, 0x2a0daa00, 0x2a494000)
+ compacting perm gen  total 12288K, used 7175K [0x33e30000, 0x34a30000, 0x37e30000)
+   the space 12288K,  58% used [0x33e30000, 0x34531df8, 0x34531e00, 0x34a30000)
+    ro space 10240K,  45% used [0x37e30000, 0x382b4650, 0x382b4800, 0x38830000)
+    rw space 12288K,  54% used [0x38830000, 0x38eb7e58, 0x38eb8000, 0x39430000)
+Event: 20.351 GC heap after
+Heap after GC invocations=164 (full 1):
+ def new generation   total 7936K, used 302K [0x23e30000, 0x246c0000, 0x29380000)
+  eden space 7104K,   0% used [0x23e30000, 0x23e30000, 0x24520000)
+  from space 832K,  36% used [0x245f0000, 0x2463b818, 0x246c0000)
+  to   space 832K,   0% used [0x24520000, 0x24520000, 0x245f0000)
+ tenured generation   total 17488K, used 13864K [0x29380000, 0x2a494000, 0x33e30000)
+   the space 17488K,  79% used [0x29380000, 0x2a10a130, 0x2a10a200, 0x2a494000)
+ compacting perm gen  total 12288K, used 7175K [0x33e30000, 0x34a30000, 0x37e30000)
+   the space 12288K,  58% used [0x33e30000, 0x34531df8, 0x34531e00, 0x34a30000)
+    ro space 10240K,  45% used [0x37e30000, 0x382b4650, 0x382b4800, 0x38830000)
+    rw space 12288K,  54% used [0x38830000, 0x38eb7e58, 0x38eb8000, 0x39430000)
+}
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 32.943 Thread 0x04925400 Threw 0x241585c0 at C:\jdk7u1_32P\jdk7u7\hotspot\src\share\vm\prims\jni.cpp:742
+Event: 32.943 Thread 0x04925400 Threw 0x24159970 at C:\jdk7u1_32P\jdk7u7\hotspot\src\share\vm\prims\jvm.cpp:1166
+Event: 41.375 Thread 0x04925400 Threw 0x241b6018 at C:\jdk7u1_32P\jdk7u7\hotspot\src\share\vm\prims\jni.cpp:742
+Event: 41.375 Thread 0x04925400 Threw 0x241b6910 at C:\jdk7u1_32P\jdk7u7\hotspot\src\share\vm\prims\jni.cpp:742
+Event: 63.100 Thread 0x04925400 Threw 0x2421e900 at C:\jdk7u1_32P\jdk7u7\hotspot\src\share\vm\prims\jvm.cpp:1166
+Event: 63.101 Thread 0x04925400 Threw 0x242213f0 at C:\jdk7u1_32P\jdk7u7\hotspot\src\share\vm\prims\jni.cpp:742
+Event: 63.101 Thread 0x04925400 Threw 0x24221ce8 at C:\jdk7u1_32P\jdk7u7\hotspot\src\share\vm\prims\jni.cpp:742
+Event: 63.102 Thread 0x04925400 Threw 0x24222b00 at C:\jdk7u1_32P\jdk7u7\hotspot\src\share\vm\prims\jvm.cpp:1166
+Event: 63.103 Thread 0x04925400 Threw 0x24226ab8 at C:\jdk7u1_32P\jdk7u7\hotspot\src\share\vm\prims\jvm.cpp:1166
+Event: 63.104 Thread 0x04925400 Threw 0x2422c160 at C:\jdk7u1_32P\jdk7u7\hotspot\src\share\vm\prims\jvm.cpp:1166
+
+Events (10 events):
+Event: 32.943 loading class 0x01f08f70
+Event: 32.943 loading class 0x01f08f70 done
+Event: 63.100 loading class 0x0527bf38
+Event: 63.100 loading class 0x0527bf38 done
+Event: 63.101 loading class 0x0527cb98
+Event: 63.102 loading class 0x0527cb98 done
+Event: 63.103 loading class 0x01f087c8
+Event: 63.103 loading class 0x01f087c8 done
+Event: 63.104 loading class 0x01f08720
+Event: 63.104 loading class 0x01f08720 done
+
+
+Dynamic libraries:
+0x00a30000 - 0x00a5f000 	C:\Program Files (x86)\Java\jdk1.7.0_07\bin\java.exe
+0x76ff0000 - 0x77170000 	C:\windows\SysWOW64\ntdll.dll
+0x76400000 - 0x76510000 	C:\windows\syswow64\kernel32.dll
+0x74c80000 - 0x74cc6000 	C:\windows\syswow64\KERNELBASE.dll
+0x74a40000 - 0x74ae0000 	C:\windows\syswow64\ADVAPI32.dll
+0x74bd0000 - 0x74c7c000 	C:\windows\syswow64\msvcrt.dll
+0x76510000 - 0x76529000 	C:\windows\SysWOW64\sechost.dll
+0x74ae0000 - 0x74bd0000 	C:\windows\syswow64\RPCRT4.dll
+0x746d0000 - 0x74730000 	C:\windows\syswow64\SspiCli.dll
+0x746c0000 - 0x746cc000 	C:\windows\syswow64\CRYPTBASE.dll
+0x74f10000 - 0x75010000 	C:\windows\syswow64\USER32.dll
+0x76130000 - 0x761c0000 	C:\windows\syswow64\GDI32.dll
+0x76fc0000 - 0x76fca000 	C:\windows\syswow64\LPK.dll
+0x76530000 - 0x765cd000 	C:\windows\syswow64\USP10.dll
+0x71ba0000 - 0x71d3e000 	C:\windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_41e6975e2bd6f2b2\COMCTL32.dll
+0x74730000 - 0x74787000 	C:\windows\syswow64\SHLWAPI.dll
+0x760d0000 - 0x76130000 	C:\windows\system32\IMM32.DLL
+0x74790000 - 0x7485c000 	C:\windows\syswow64\MSCTF.dll
+0x6ba10000 - 0x6bace000 	C:\Program Files (x86)\Java\jdk1.7.0_07\jre\bin\msvcr100.dll
+0x6a020000 - 0x6a36c000 	C:\Program Files (x86)\Java\jdk1.7.0_07\jre\bin\client\jvm.dll
+0x72950000 - 0x72957000 	C:\windows\system32\WSOCK32.dll
+0x75f70000 - 0x75fa5000 	C:\windows\syswow64\WS2_32.dll
+0x74d10000 - 0x74d16000 	C:\windows\syswow64\NSI.dll
+0x72a90000 - 0x72ac2000 	C:\windows\system32\WINMM.dll
+0x74cd0000 - 0x74cd5000 	C:\windows\syswow64\PSAPI.DLL
+0x6c4c0000 - 0x6c4cc000 	C:\Program Files (x86)\Java\jdk1.7.0_07\jre\bin\verify.dll
+0x6c4a0000 - 0x6c4c0000 	C:\Program Files (x86)\Java\jdk1.7.0_07\jre\bin\java.dll
+0x6c260000 - 0x6c273000 	C:\Program Files (x86)\Java\jdk1.7.0_07\jre\bin\zip.dll
+0x6c280000 - 0x6c294000 	C:\Program Files (x86)\Java\jdk1.7.0_07\jre\bin\net.dll
+0x72550000 - 0x7258c000 	C:\windows\system32\mswsock.dll
+0x72380000 - 0x72386000 	C:\windows\System32\wship6.dll
+0x6c4d0000 - 0x6c4df000 	C:\Program Files (x86)\Java\jdk1.7.0_07\jre\bin\nio.dll
+0x72530000 - 0x72535000 	C:\windows\System32\wshtcpip.dll
+0x72900000 - 0x72944000 	C:\windows\system32\DNSAPI.dll
+0x717c0000 - 0x717e7000 	C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live\WLIDNSP.DLL
+0x729d0000 - 0x729ec000 	C:\windows\system32\IPHLPAPI.DLL
+0x729c0000 - 0x729c7000 	C:\windows\system32\WINNSI.DLL
+0x71770000 - 0x71776000 	C:\windows\system32\rasadhlp.dll
+0x71780000 - 0x717b8000 	C:\windows\System32\fwpuclnt.dll
+0x726c0000 - 0x726d6000 	C:\windows\system32\CRYPTSP.dll
+0x72680000 - 0x726bb000 	C:\windows\system32\rsaenh.dll
+0x72ae0000 - 0x72af7000 	C:\windows\system32\USERENV.dll
+0x72ad0000 - 0x72adb000 	C:\windows\system32\profapi.dll
+0x71830000 - 0x71840000 	C:\windows\system32\NLAapi.dll
+0x71820000 - 0x71830000 	C:\windows\system32\napinsp.dll
+0x71800000 - 0x71812000 	C:\windows\system32\pnrpnsp.dll
+0x717f0000 - 0x717f8000 	C:\windows\System32\winrnr.dll
+0x69ed0000 - 0x6a012000 	C:\Program Files (x86)\Java\jdk1.7.0_07\jre\bin\awt.dll
+0x749b0000 - 0x74a3f000 	C:\windows\syswow64\OLEAUT32.dll
+0x765d0000 - 0x7672c000 	C:\windows\syswow64\ole32.dll
+0x6fc80000 - 0x6fcd0000 	C:\Users\Sgeo\DEV\Clojure\clj-vp\VP.dll
+0x10000000 - 0x10072000 	C:\Users\Sgeo\AppData\Local\Temp\jna\jna965084245861368111.dll
+0x726f0000 - 0x727db000 	C:\windows\system32\dbghelp.dll
+
+VM Arguments:
+jvm_args: -XX:+TieredCompilation -Dclojure.compile.path=C:\Users\Sgeo\DEV\Clojure\clj-vp\target\classes -Dclj-vp.version=0.1.0-SNAPSHOT -Dclojure.debug=false 
+java_command: clojure.main -e (do (clojure.core/require (quote clojure.tools.nrepl.server) (quote complete.core)) (set! *warn-on-reflection* nil) (clojure.core/let [server__1765__auto__ (clojure.tools.nrepl.server/start-server :bind "127.0.0.1" :port 0 :ack-port 63408 :handler (clojure.tools.nrepl.server/default-handler)) port__1766__auto__ (clojure.core/-> server__1765__auto__ clojure.core/deref :ss .getLocalPort)] (clojure.core/println "nREPL server started on port" port__1766__auto__) (clojure.core/spit "C:\\\\Users\\\\Sgeo\\\\DEV\\\\Clojure\\\\clj-vp\\\\target\\\\repl-port" port__1766__auto__) (clojure.core/deref (clojure.core/promise))))
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files (x86)\Java\jdk1.7.0_07
+CLASSPATH=C:\Users\Sgeo\.lein\self-installs\leiningen-2.0.0-preview10-standalone.jar
+PATH=C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Open Dylan\\bin;C:\Program Files (x86)\Calibre2\;C:\Users\Sgeo\LispCabinet;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files (x86)\GnuWin32\bin;C:\Program Files (x86)\Java\jdk1.7.0_07\bin;C:\Users\Sgeo\apache-maven-3.0.2-bin\bin;C:\Tcl\bin;C:\Ruby192\bin;C:\Users\Sgeo\AppData\Roaming\cabal\bin;C:\progra~2\scala\bin;C:\Users\Sgeo\bin;C:\MinGW\bin;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Open Dylan\\bin;C:\Program Files (x86)\Calibre2\;C:\Users\Sgeo\LispCabinet;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files (x86)\newlisp;C:\Program Files (x86)\Java\jre7\bin
+USERNAME=Sgeo
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 16 Model 6 Stepping 3, AuthenticAMD
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 7 , 64 bit Build 7601 Service Pack 1
+
+CPU:total 1 (1 cores per cpu, 1 threads per core) family 16 model 6 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, popcnt, mmxext, 3dnowpref, lzcnt, tsc, tscinvbit, tscinv
+
+Memory: 4k page, physical 1830600k(87072k free), swap 4574920k(838240k free)
+
+vm_info: Java HotSpot(TM) Client VM (23.3-b01) for windows-x86 JRE (1.7.0_07-b11), built on Sep  7 2012 01:40:56 by "java_re" with unknown MS VC++:1600
+
+time: Sun Nov 11 18:19:49 2012
+elapsed time: 64 seconds
+
