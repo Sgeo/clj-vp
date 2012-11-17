@@ -1,1 +1,1 @@
-java -jar ..\Clojure\jnaerator-0.10-shaded.jar -library VP VP.h rc.h -o vpjar -jar vpjar.jar -runtime JNAerator -mode StandaloneJar
+java -jar ..\..\jnaerator-0.10-shaded.jar -library VP VP.h rc.h -o vpjar -jar vpjar.jar -runtime JNAerator -mode StandaloneJar
