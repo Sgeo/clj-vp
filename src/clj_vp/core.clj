@@ -1,28 +1,27 @@
 (ns clj-vp.core
-  (:use  [clj-vp.rc :only [throw-rc]]))
+  (:use
+   [clj-vp.private :only [+INSTANCE+ call-vp call-vp-b locking-b]]))
 
-(def ^:private +INSTANCE+ vp.VPLibrary/INSTANCE)
 
-(defmacro call-vp
-  "Calls a method on +INSTANCE and wraps the call in throw-rc"
-  [& [method & args]]
-  `(throw-rc (~method +INSTANCE+ ~@args)))
 
 (defn init
   "Call before any other VP functions"
   []
+  (System/setProperty "jna.encoding" "UTF8")
   (call-vp .vp_init vp.VPLibrary/VPSDK_VERSION))
 
 
 (defn create
   "Create a VP bot"
   []
-  (.vp_create +INSTANCE+))
+  {:sdk (.vp_create +INSTANCE+) ; Can't use call-vp because return value is not an RC
+   :lock (Object.)}) 
 
 (defn destroy
   "Destroy a VP bot"
   [bot]
-  (call-vp .vp_destroy bot))
+  (locking-b
+   (call-vp-b .vp_destroy)))
 
 (defn connect-universe
   "Connects to the given universe.
@@ -32,24 +31,29 @@ Defaults to Edwin's universe."
   ([bot host]
      (connect-universe bot host 57000))
   ([bot host port]
-     (call-vp .vp_connect_universe bot host port)))
+     (locking-b
+      (call-vp-b .vp_connect_universe host port))))
 
 (defn login
   "Logs into the universe"
   [bot & {:keys [user pass name]}]
-  (call-vp .vp_login bot user pass name))
+  (locking-b
+   (call-vp-b .vp_login user pass name)))
 
 (defn enter
   "Enter a world"
   [bot world]
-  (call-vp .vp_enter bot world))
+  (locking-b
+   (call-vp-b .vp_enter world)))
 
 (defn leave
   "Leave the current world"
   [bot]
-  (call-vp .vp_leave bot))
+  (locking-b
+   (call-vp-b .vp_leave)))
 
 (defn say
   "Send a message to everyone in the current world"
   [bot msg]
-  (call-vp .vp_say bot msg))
+  (locking-b
+   (call-vp-b .vp_say msg)))
